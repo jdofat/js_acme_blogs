@@ -32,7 +32,7 @@ if(myEle){
    return myEle;
 }
 else {
-    return undefined;
+    return null;
 }
 };
 
