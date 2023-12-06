@@ -29,8 +29,11 @@ function toggleCommentSection (postId) {
     let myEle = document.getElementById(postId);
 if(myEle){
    myEle.toggleCommentSection();
-};
-return myEle;
+   return myEle;
+}
+else {
+    return undefined;
+}
 };
 
 /**/
