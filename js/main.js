@@ -1,5 +1,5 @@
 /* 1. createElemWithText */
-function createElemWithText (stringOne="p", textContent="hi", firstClassName) {
+function createElemWithText (stringOne="p", textContent="", firstClassName) {
     let elText = document.createElement(stringOne);
     elText.innerHTML = textContent;
     if (firstClassName) {
