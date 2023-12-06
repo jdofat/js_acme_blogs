@@ -23,12 +23,37 @@ function createSelectOptions (userData) {
     return myOptionsArray;
 }
 
-/**/
+/* 3. toggleCommentSection */
+
+function toggleCommentSection (postId) {
+    let myEle = document.getElementById(postId);
+if(myEle){
+   myEle.toggle();
+}
+
 
 /**/
 /**/
 /**/
 /**/
-
+/**/
+/**/
+/**/
+/**//**/
+/**/
+/**/
+/**//**/
+/**/
+/**/
+/**//**/
+/**/
+/**/
+/**//**/
+/**/
+/**/
+/**//**/
+/**/
+/**/
+/**/
 
 
