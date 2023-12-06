@@ -26,7 +26,7 @@ function createSelectOptions (userData) {
 /* 3. toggleCommentSection */
 
 function toggleCommentSection (postId) {
-if !(postId) {
+if (!postId) {
     return undefined;
 }
     let myEle = document.getElementById(postId);
