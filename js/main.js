@@ -21,16 +21,17 @@ function createSelectOptions (userData) {
         myOptionsArray.push(opt); 
         }
     return myOptionsArray;
-}
+};
 
 /* 3. toggleCommentSection */
 
 function toggleCommentSection (postId) {
     let myEle = document.getElementById(postId);
 if(myEle){
-   myEle.toggle();
-}
-
+   myEle.toggleCommentSection();
+};
+return myEle;
+};
 
 /**/
 /**/
