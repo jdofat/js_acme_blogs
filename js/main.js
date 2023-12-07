@@ -69,7 +69,21 @@ let myChild = aParentElement.lastElementChild;
 return aParentElement;
 };
 
-/**/
+/* 6. addButtonListeners */
+function addButtonListeners() {
+    const buttons = Array.from(document.querySelectorAll('main button'));
+    buttons.map(button => {
+        const postId = button.dataset.postId;
+        if (postId) {
+            button.addEventListener('click', (event) => {
+                toggleComments(event, postId);
+            });
+        }
+    });
+    return buttons;
+};
+function toggleComments(event, postId) {
+};
 
 /**/
 
