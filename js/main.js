@@ -61,11 +61,13 @@ function deleteChildElements (aParentElement) {
     if (!aParentElement) {
         return undefined;
     }
-let myChild = aParentElement.lastElementChild();
+let myChild = aParentElement.lastElementChild;
     while (myChild) {
         aParentElement.removeChild();
+        myChild = aParentElement.lastElementChild;
     }
-}
+return aParentElement;
+};
 
 /**/
 
