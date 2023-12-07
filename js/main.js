@@ -73,21 +73,20 @@ return aParentElement;
 function addButtonListeners() {
     let buttons = document.querySelectorAll('main button');
     if (buttons.length > 0) {
-        buttons.forEach(button => {
-            let postId = button.dataset.postId;
-            if (postId) {
-                button.addEventListener('click', function(event) {
-                    toggleComments(event, postId);
-                });
-            }
-        });
+      buttons.forEach(button => {
+        let postId = button.dataset.postId;
+        if (postId) {
+          button.addEventListener('click', function(event) {
+            toggleComments(event, postId);
+          });
+        }
+      });
     }
     return buttons;
-};
-function toggleComments(event, postId) {
-}
-
-
+  };
+  function toggleComments(event, postId) {
+    console.log(`Toggling comments for post ID: ${postId}`);
+  };
 /**/
 
 /**/
