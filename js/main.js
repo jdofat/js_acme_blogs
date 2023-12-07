@@ -61,6 +61,9 @@ function deleteChildElements (aParentElement) {
     if (!aParentElement) {
         return undefined;
     }
+    if (aParentElement instanceof HTMLElement) {
+        return undefined;
+    }
 let myChild = aParentElement.lastElementChild;
     while (myChild) {
         aParentElement.removeChild();
