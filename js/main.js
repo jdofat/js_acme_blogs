@@ -74,18 +74,20 @@ function addButtonListeners() {
     const buttons = document.querySelectorAll('main button');
   
     buttons.forEach(button => {
-      const postId = button.dataset.postId;
-      if (postId) {
-        button.addEventListener('click', function(event) {
+      button.addEventListener('click', function(event) {
+        const postId = button.dataset.postId;
+        if (postId) {
           toggleComments(event, postId);
-        });
-      }
+        }
+      });
     });
+  
     return buttons;
   }
+  
   function toggleComments(event, postId) {
-    console.log(`Toggling comments for post ID: ${postId}`);
-  };  
+    // Your logic for toggling comments based on postId goes here
+  }   
 /**/
 
 /**/
