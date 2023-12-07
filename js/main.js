@@ -56,17 +56,30 @@ function toggleCommentButton (postId) {
     }
 };
 
+/* 5. deleteChildElements */
+function deleteChildElements (aParentElement) {
+    if (aParentElement) {
+        return undefined;
+    }
+let myChild = aParentElement.lastElementChild;
+    while (myChild) {
+        aParentElement.removeChild;
+    }
+}
+
 /**/
 
+/**/
+
+/**/
 
 /**/
 
+/**/
 
 /**/
+
 /**/
-/**/
-/**/
-/**//**/
 /**/
 /**/
 /**//**/
