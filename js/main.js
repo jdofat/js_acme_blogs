@@ -39,9 +39,23 @@ else {
 }
 };
 
+/* 4. toggleCommentButton */
+function toggleCommentButton (postId) {
+    let myButton = document.querySelector(`button[data-post-id="${postId}"]`);
+if (myButton.textContent =  "Show Comments") {
+    myButton.textContent = "Hide Comments";
+}
+else {
+    myButton.textContent = "Show Comments";
+}
+};
+
 /**/
+
+
 /**/
-/**/
+
+
 /**/
 /**/
 /**/
