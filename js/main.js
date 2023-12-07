@@ -31,7 +31,7 @@ if (!postId) {
 }
     let myEle = document.getElementById(postId);
 if(myEle){
-   myEle.classList.toggleCommentSection();
+   myEle.classList.toggle("hide");
    return myEle;
 }
 else {
