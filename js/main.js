@@ -29,7 +29,7 @@ function toggleCommentSection (postId) {
 if (!postId) {
     return undefined;
 }
-    let myEle = document.getElementById(postId);
+    let myEle = document.querySelector(`section[data-post-id="${postId}"]`);
 if(myEle){
    myEle.classList.toggle("hide");
    return myEle;
