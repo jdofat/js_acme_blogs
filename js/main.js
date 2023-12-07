@@ -71,11 +71,10 @@ return aParentElement;
 
 /* 6. addButtonListeners */
 function addButtonListeners() {
-    const buttons = document.querySelectorAll('main button');
-
+    let buttons = document.querySelectorAll('main button');
     if (buttons.length > 0) {
         buttons.forEach(button => {
-            const postId = button.dataset.postId;
+            let postId = button.dataset.postId;
             if (postId) {
                 button.addEventListener('click', function(event) {
                     toggleComments(event, postId);
@@ -83,12 +82,9 @@ function addButtonListeners() {
             }
         });
     }
-
     return buttons;
-}
-
+};
 function toggleComments(event, postId) {
-    // Logic for toggling comments based on postId will go here
 }
 
 
