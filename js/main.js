@@ -47,12 +47,9 @@ function toggleCommentButton (postId) {
     }
     let myButton = document.querySelector(`button[data-post-id="${postId}"]`);
     if(myButton){
-        if (myButton.textContent ==  "Show Comments") {
-        myButton.textContent = "Hide Comments";
-        }
-        else {
-        myButton.textContent = "Show Comments";
-        }
+        (myButton.textContent === "Show Comments")
+        ? myButton.textContent = "Hide Comments" : myButton.textContent = "Show Comments"; 
+    return myButton;
     }
     else {
         return null;
