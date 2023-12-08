@@ -89,7 +89,7 @@ function addButtonListeners() {
     return buttons;
   };
     
-/**/
+/* 7. removeButtonListeners */
 
 function removeButtonListeners() {
     let buttons = document.querySelectorAll('main button');
@@ -108,15 +108,35 @@ function removeButtonListeners() {
 };
 
 
-/**/
+/* 8. createComments */
 
-/**/
+// Assuming createElemWithText function is defined elsewhere
+function createComments(commentsData) {
+    let fragment = document.createDocumentFragment();
 
-/**/
+    commentsData.forEach(comment => {
+        let article = document.createElement('article');
+        let nameHeader = createElemWithText('h3', comment.name);
+        let bodyParagraph = createElemWithText('p', comment.body);
+        let emailParagraph = createElemWithText('p', `From: ${comment.email}`);
 
-/**/
+        article.appendChild(nameHeader);
+        article.appendChild(bodyParagraph);
+        article.appendChild(emailParagraph);
 
-/**/
+        fragment.appendChild(article);
+    });
+
+    return fragment;
+};
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*   */
 /**/
 /**/
 /**//**/
