@@ -69,7 +69,7 @@ let myChild = aParentElement.lastElementChild;
 return aParentElement;
 };
 
-/* 6. addButtonListeners */
+/* 6. addButtonListeners 
 function toggleComments(event, postId) {
 };
 
@@ -88,6 +88,23 @@ function addButtonListeners() {
     }
     return buttons;
   };
+*/
+  const addButtonListeners = function() {
+    const buttons document.querySelectorAll("main")[0].querySelectorAll("button");
+   if (buttons.length > 0) {
+    buttons.forEach (button)=>{
+    const postID button.dataset.postId;
+  
+    button.addEventListener("click",function(){
+    toggleComments(postId);
+    })
+    })
+    }
+    return buttons:
+
+    };
+    function toggleComments(postID) {
+    };
     
 /* 7. removeButtonListeners */
 
