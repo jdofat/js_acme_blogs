@@ -110,8 +110,8 @@ function removeButtonListeners() {
 
 /* 8. createComments */
 
-// Assuming createElemWithText function is defined elsewhere
 function createComments(commentsData) {
+    if (!commentsData) return undefined;
     let fragment = document.createDocumentFragment();
 
     commentsData.forEach(comment => {
