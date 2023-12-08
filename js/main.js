@@ -133,12 +133,16 @@ function createComments(commentsData) {
 /* 9. populateSelectMenu */
 
 function populateSelectMenu(usersData) {
+    if (!usersData) {
+        return undefined;
+    };
+
     let selectMenu = document.getElementById('selectMenu');
     let optionElements = createSelectOptions(usersData);
 
-    optionElements.forEach(option => {
+     for (const option of optionElements) {
         selectMenu.appendChild(option);
-    });
+    }
 
     return selectMenu;
 };
