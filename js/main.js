@@ -69,7 +69,7 @@ let myChild = aParentElement.lastElementChild;
 return aParentElement;
 };
 
-/* 6. addButtonListeners 
+/* 6. addButtonListeners */
 function toggleComments(event, postId) {
 };
 
@@ -88,26 +88,6 @@ function addButtonListeners() {
     }
     return buttons;
   };
-*/
-const addButtonListeners = function() {
-    const buttons = document.querySelectorAll("main button");
-
-    if (buttons.length > 0) {
-        buttons.forEach(button => {
-            const postId = button.dataset.postId;
-
-            button.addEventListener("click", function() {
-                toggleComments(postId);
-            });
-        });
-    }
-
-    return buttons;
-};
-
-function toggleComments(postID) {
-    // Your logic for toggleComments goes here
-}
 
 /* 7. removeButtonListeners */
 
