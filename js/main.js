@@ -70,12 +70,15 @@ return aParentElement;
 };
 
 /* 6. addButtonListeners */
+function toggleComments(event, postId) {
+};
+
 function addButtonListeners() {
-    const buttons = document.querySelectorAll('main button');
+    let buttons = document.querySelectorAll('main button');
   
     if (buttons) {
       buttons.forEach(button => {
-        const postId = button.dataset.postId;
+        let postId = button.dataset.postId;
         if (postId) {
           button.addEventListener('click', function(event) {
             toggleComments(event, postId);
@@ -83,15 +86,27 @@ function addButtonListeners() {
         }
       });
     }
-  
     return buttons;
-  }
-  
-  function toggleComments(event, postId) {
-  }
-  
+  };
     
 /**/
+
+function removeButtonListeners() {
+    let buttons = document.querySelectorAll('main button');
+
+    if (buttons) {
+        buttons.forEach(button => {
+            let postId = button.dataset.id;
+            if (postId) {
+                button.removeEventListener('click', function(event) {
+                    toggleComments(event, postId);
+                });
+            }
+        });
+    }
+    return buttons;
+};
+
 
 /**/
 
