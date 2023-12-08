@@ -89,23 +89,26 @@ function addButtonListeners() {
     return buttons;
   };
 */
-  const addButtonListeners = function() {
-    const buttons document.querySelectorAll("main")[0].querySelectorAll("button");
-   if (buttons.length > 0) {
-    buttons.forEach (button)=>{
-    const postID button.dataset.postId;
-  
-    button.addEventListener("click",function(){
-    toggleComments(postId);
-    })
-    })
-    }
-    return buttons:
+const addButtonListeners = function() {
+    const buttons = document.querySelectorAll("main button");
 
-    };
-    function toggleComments(postID) {
-    };
-    
+    if (buttons.length > 0) {
+        buttons.forEach(button => {
+            const postId = button.dataset.postId;
+
+            button.addEventListener("click", function() {
+                toggleComments(postId);
+            });
+        });
+    }
+
+    return buttons;
+};
+
+function toggleComments(postID) {
+    // Your logic for toggleComments goes here
+}
+
 /* 7. removeButtonListeners */
 
 function removeButtonListeners() {
