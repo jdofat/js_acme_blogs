@@ -130,10 +130,35 @@ function createComments(commentsData) {
     return fragment;
 };
 
-/*  */
+/* 9. populateSelectMenu */
 
-/*  */
+function populateSelectMenu(usersData) {
+    let selectMenu = document.getElementById('selectMenu');
+    let optionElements = createSelectOptions(usersData);
 
+    optionElements.forEach(option => {
+        selectMenu.appendChild(option);
+    });
+
+    return selectMenu;
+};
+
+/* 10. getUsers */
+
+async function getUsers() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        if (!response.ok) {
+            throw new Error('Unable to fetch data');
+        }
+
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error('Error fetching users data:', error);
+        return null;
+    }
+};
 /*  */
 
 /*   */
