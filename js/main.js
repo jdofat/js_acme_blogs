@@ -286,21 +286,17 @@ let displayPosts = async (postsData) => {
 
 /* 17. toggleComments */
 
-async function toggleComments(clickEventListener, postId) {
-    if (!clickEventListener instanceof Event) {
-        return;
-    }
-    if (!postId) {
-        return;
+function toggleComments(clickEventListener, postId) {
+    if (!clickEventListener || !postId) {
+        return undefined;
     }
     clickEventListener.target.listener = true;
     let mysection = toggleCommentSection(postId);
     let mybutton = toggleCommentButton(postId);
     
-let myArray = [];
-myArray.push(mysection, mybutton);
-return myArray;
-};
+return [mysection, mybutton]; 
+}
+
 
 
 /* 18. refreshPosts */
@@ -318,17 +314,7 @@ async function refreshPosts(postsData) {
 /* 19. selectMenuChangeEventHandler */
 
 async function selectMenuChangeEventHandler(event) {
-    let selectMenu = event.target;
-    selectMenu.disabled = true;
 
-    let userId = event.target.value || 1;
-
-    let posts = await getUserPosts(userId);
-    let refreshPostsArray = await refreshPosts(posts);
-
-    selectMenu.disabled = false;
-
-    return [userId, posts, refreshPostsArray];
 };
 
 /* 20. initPage */
