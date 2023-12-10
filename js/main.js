@@ -346,5 +346,5 @@ function initApp() {
     let [users, select] = initPage();
     let selectMenu = document.getElementById('selectMenu');
 
-    selectMenu.addEventListener('change', selectMenuChangeEventHandler);
+    selectMenu.addEventListener('change', selectMenuChangeEventHandler(e));
 };
