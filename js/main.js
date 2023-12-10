@@ -306,10 +306,10 @@ return myArray;
 /* 18. refreshPosts */
 
 async function refreshPosts(postsData) {
-    const removeButtons = removeButtonListeners();
-    const mainElement = document.querySelector('main');
-    const main = deleteChildElements(mainElement);
-    const fragment = await displayPosts(postsData);
+    let removeButtons = removeButtonListeners();
+    let mainElement = document.querySelector('main');
+    let main = deleteChildElements(mainElement);
+    let fragment = await displayPosts(postsData);
     let addButtons = addButtonListeners();
 
     return [removeButtons, main, fragment, addButtons];
