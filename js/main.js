@@ -163,23 +163,110 @@ async function getUsers() {
         return null;
     }
 };
-/*  */
 
-/*   */
-/**/
-/**/
-/**//**/
-/**/
-/**/
-/**//**/
-/**/
-/**/
-/**//**/
-/**/
-/**/
-/**//**/
-/**/
-/**/
-/**/
+/* 11. getUserPosts */
 
+async function getUserPosts(userId) {
+    try {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+        let postData = await response.json();
+        return postData;
+    } catch (error) {
+        console.error('Error fetching user posts:', error);
+        throw error;
+    }
+};
+
+/* 12. getUser */
+
+async function getUser(userId) {
+    try {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+        let userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        throw error;
+    }
+};
+
+/* 13. getPostComments */
+
+async function getPostComments(postId) {
+    try {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+        let commentsData = await response.json();
+        return commentsData;
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+        throw error;
+    }
+};
+
+/* 14. displayComments */
+
+async function displayComments(postId) {
+    let section = document.createElement('section');
+    section.dataset.postId = postId;
+    section.classList.add('comments', 'hide');
+
+    try {
+        let comments = await getPostComments(postId);
+        let fragment = createComments(comments);
+
+        section.appendChild(fragment);
+        return section;
+    } catch (error) {
+        console.error('Error displaying comments:', error);
+        throw error;
+    }
+};
+
+/* 15. createPosts */
+
+async function createPosts(postsData) {
+    const fragment = document.createDocumentFragment();
+
+    for (let post of postsData) {
+        let article = document.createElement('article');
+        let h2 = createElemWithText('h2', post.title);
+        let bodyParagraph = createElemWithText('p', post.body);
+        let postIdParagraph = createElemWithText('p', `Post ID: ${post.id}`);
+
+        let author = await getUser(post.userId);
+        let authorParagraph = createElemWithText('p', `Author: ${author.name} with ${author.company.name}`);
+        let companyCatchPhraseParagraph = createElemWithText('p', author.company.catchPhrase);
+
+        let showCommentsButton = document.createElement('button');
+        showCommentsButton.textContent = 'Show Comments';
+        showCommentsButton.dataset.postId = post.id;
+
+        article.appendChild(h2);
+        article.appendChild(bodyParagraph);
+        article.appendChild(postIdParagraph);
+        article.appendChild(authorParagraph);
+        article.appendChild(companyCatchPhraseParagraph);
+        article.appendChild(showCommentsButton);
+
+        let commentsSection = await displayComments(post.id);
+        article.appendChild(commentsSection);
+
+        fragment.appendChild(article);
+    }
+
+    return fragment;
+};
+
+
+/* 16. displayPosts */
+
+/* 17. toggleComments */
+
+/* 18. refreshPosts */
+
+/* 19. selectMenuChangeEventHandler */
+
+/* 20. initPage */
+
+/* 21. initApp */
 
