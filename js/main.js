@@ -275,13 +275,36 @@ async function createPosts(postsData) {
 
 /* 16. displayPosts */
 
+function toggleComments(event, postId) {
+    event.target.listener = true;
+    let section = toggleCommentSection(postId);
+    let button = toggleCommentButton(postId);
+    return [section, button];
+};
+
 /* 17. toggleComments */
+
+async function refreshPosts(postsData) {
+    let removeButtons = removeButtonListeners();
+    let main = deleteChildElements(document.querySelector('main'));
+    let fragment = await displayPosts(postsData);
+    let addButtons = addButtonListeners();
+    
+return [removeButtons, main, fragment, addButtons];
+}
+
 
 /* 18. refreshPosts */
 
+
+
 /* 19. selectMenuChangeEventHandler */
 
+
+
 /* 20. initPage */
+
+
 
 /* 21. initApp */
 
