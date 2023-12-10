@@ -291,20 +291,51 @@ async function refreshPosts(postsData) {
     let addButtons = addButtonListeners();
     
 return [removeButtons, main, fragment, addButtons];
-}
+};
 
 
 /* 18. refreshPosts */
 
+async function refreshPosts(postsData) {
+    const removeButtons = removeButtonListeners();
+    const mainElement = document.querySelector('main');
+    const main = deleteChildElements(mainElement);
+    const fragment = await displayPosts(postsData);
+    const addButtons = addButtonListeners();
 
+    return [removeButtons, main, fragment, addButtons];
+};
 
 /* 19. selectMenuChangeEventHandler */
 
+async function selectMenuChangeEventHandler(event) {
+    const selectMenu = event.target;
+    selectMenu.disabled = true;
 
+    const userId = event.target.value || 1;
+
+    const posts = await getUserPosts(userId);
+    const refreshPostsArray = await refreshPosts(posts);
+
+    selectMenu.disabled = false;
+
+    return [userId, posts, refreshPostsArray];
+};
 
 /* 20. initPage */
 
+async function initPage() {
+    const users = await getUsers();
+    const select = populateSelectMenu(users);
 
+    return [users, select];
+};
 
 /* 21. initApp */
 
+function initApp() {
+    const [users, select] = initPage();
+    const selectMenu = document.getElementById('selectMenu');
+
+    selectMenu.addEventListener('change', selectMenuChangeEventHandler);
+};
