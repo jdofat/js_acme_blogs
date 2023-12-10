@@ -240,6 +240,7 @@ async function createPosts(postsData) {
     if (!postsData) {
         return undefined;
     };
+    
     let fragment = document.createDocumentFragment();
 
     for (let post of postsData) {
@@ -250,7 +251,7 @@ async function createPosts(postsData) {
 
         let author = await getUser(post.userId);
         let authorParagraph = createElemWithText('p', `Author: ${author.name} with ${author.company.name}`);
-        let companyCatchPhraseParagraph = createElemWithText('p', author.company.catchPhrase);
+        let catchPhrase = createElemWithText('p', author.company.catchPhrase);
 
         let showCommentsButton = document.createElement('button');
         showCommentsButton.textContent = 'Show Comments';
@@ -260,15 +261,14 @@ async function createPosts(postsData) {
         article.appendChild(bodyParagraph);
         article.appendChild(postIdParagraph);
         article.appendChild(authorParagraph);
-        article.appendChild(companyCatchPhraseParagraph);
+        article.appendChild(catchPhrase);
         article.appendChild(showCommentsButton);
 
         let commentsSection = await displayComments(post.id);
         article.appendChild(commentsSection);
 
         fragment.appendChild(article);
-    }
-
+    };
     return fragment;
 };
 
