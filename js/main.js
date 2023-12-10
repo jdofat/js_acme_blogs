@@ -278,7 +278,7 @@ async function createPosts(postsData) {
 async function displayPosts (postsData) {
     let mainElement = document.querySelector('main');
     let element = (postsData) ?createPosts(postsData) : mainElement.firstChild;
-    mainElement.appendChild(element);
+    return mainElement.appendChild(element);
 };
 
 /* 17. toggleComments */
