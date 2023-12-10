@@ -281,15 +281,18 @@ let displayPosts = async (postsData) => {
     ? await createPosts(postsData)
      : document.querySelector("main p");
      mainElement.append(element);
-     return element; };
+     return element; 
+    };
 
 /* 17. toggleComments */
 
 async function toggleComments(clickEventListener, postId) {
-    if (!clickEventListener || !postId) {
+    if (!clickEventListener) {
         return undefined;
-    };
-
+    }
+    if (!postId) {
+        return undefined;
+    }
     clickEventListener.target.listener = true;
     let section = toggleCommentSection(postId);
     let button = toggleCommentButton(postId);
@@ -305,7 +308,7 @@ async function refreshPosts(postsData) {
     const mainElement = document.querySelector('main');
     const main = deleteChildElements(mainElement);
     const fragment = await displayPosts(postsData);
-    const addButtons = addButtonListeners();
+    let addButtons = addButtonListeners();
 
     return [removeButtons, main, fragment, addButtons];
 };
@@ -313,7 +316,7 @@ async function refreshPosts(postsData) {
 /* 19. selectMenuChangeEventHandler */
 
 async function selectMenuChangeEventHandler(event) {
-    const selectMenu = event.target;
+    let selectMenu = event.target;
     selectMenu.disabled = true;
 
     const userId = event.target.value || 1;
