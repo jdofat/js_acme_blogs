@@ -297,7 +297,9 @@ async function toggleComments(clickEventListener, postId) {
     let mysection = toggleCommentSection(postId);
     let mybutton = toggleCommentButton(postId);
     
-return [mysection, mybutton];
+let myArray = [];
+myArray.push(mysection, mybutton);
+return myArray
 };
 
 
