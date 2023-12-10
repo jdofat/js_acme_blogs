@@ -287,11 +287,11 @@ let displayPosts = async (postsData) => {
 /* 17. toggleComments */
 
 async function toggleComments(clickEventListener, postId) {
-    if (!clickEventListener) {
-        return undefined;
+    if (!clickEventListener instanceof Event) {
+        return;
     }
     if (!postId) {
-        return undefined;
+        return;
     }
     clickEventListener.target.listener = true;
     let mysection = toggleCommentSection(postId);
@@ -299,7 +299,7 @@ async function toggleComments(clickEventListener, postId) {
     
 let myArray = [];
 myArray.push(mysection, mybutton);
-return myArray
+return myArray;
 };
 
 
