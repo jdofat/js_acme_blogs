@@ -279,7 +279,7 @@ async function displayPosts (postsData) {
     let mainElement = document.querySelector('main');
     let element = (postsData) 
     ?createPosts(postsData)
-     : document.createElement("p", {class: "default-text"});
+     : createElemWithText("p",null ,"default-text");
     mainElement.appendChild(element);
     return element;
 };
