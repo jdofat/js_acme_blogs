@@ -279,17 +279,18 @@ let displayPosts = async (postsData) => {
     let mainElement = document.querySelector("main");
     let element = (postsData) 
     ? await createPosts(postsData)
-     : document.querySelector("main p");     mainElement.append(element);     return element; };
+     : document.querySelector("main p");
+     mainElement.append(element);
+     return element; };
 
 /* 17. toggleComments */
 
-async function refreshPosts(postsData) {
-    let removeButtons = removeButtonListeners();
-    let main = deleteChildElements(document.querySelector('main'));
-    let fragment = await displayPosts(postsData);
-    let addButtons = addButtonListeners();
+async function toggleComments(clickEventListener, postId) {
+    clickEventListener.target.listener = true;
+    let section = toggleCommentSection(postId);
+    let button = toggleCommentButton(postId);
     
-return [removeButtons, main, fragment, addButtons];
+return [section, button];
 };
 
 
