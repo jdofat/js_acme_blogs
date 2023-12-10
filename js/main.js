@@ -294,10 +294,10 @@ async function toggleComments(clickEventListener, postId) {
         return undefined;
     }
     clickEventListener.target.listener = true;
-    let section = toggleCommentSection(postId);
-    let button = toggleCommentButton(postId);
+    let mysection = toggleCommentSection(postId);
+    let mybutton = toggleCommentButton(postId);
     
-return [section, button];
+return [mysection, mybutton];
 };
 
 
