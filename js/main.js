@@ -275,14 +275,11 @@ async function createPosts(postsData) {
 
 /* 16. displayPosts */
 
-async function displayPosts (postsData) {
-    let mainElement = document.querySelector('main');
+let displayPosts = async (postsData) => {
+    let mainElement = document.querySelector("main");
     let element = (postsData) 
-    ?createPosts(postsData)
-     : createElemWithText("p",null ,"default-text");
-    mainElement.appendChild(element);
-    return element;
-};
+    ? await createPosts(postsData)
+     : document.querySelector("main p");     mainElement.append(element);     return element; };
 
 /* 17. toggleComments */
 
