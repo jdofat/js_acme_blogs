@@ -167,6 +167,9 @@ async function getUsers() {
 /* 11. getUserPosts */
 
 async function getUserPosts(userId) {
+    if (!userId) {
+        return undefined;
+    };
     try {
         let response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
         let postData = await response.json();
@@ -180,6 +183,9 @@ async function getUserPosts(userId) {
 /* 12. getUser */
 
 async function getUser(userId) {
+    if (!userId) {
+        return undefined;
+    };
     try {
         let response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
         let userData = await response.json();
@@ -193,6 +199,9 @@ async function getUser(userId) {
 /* 13. getPostComments */
 
 async function getPostComments(postId) {
+    if (!postId) {
+        return undefined;
+    };
     try {
         let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
         let commentsData = await response.json();
@@ -206,6 +215,9 @@ async function getPostComments(postId) {
 /* 14. displayComments */
 
 async function displayComments(postId) {
+    if (!postId) {
+        return undefined;
+    };
     let section = document.createElement('section');
     section.dataset.postId = postId;
     section.classList.add('comments', 'hide');
@@ -225,7 +237,10 @@ async function displayComments(postId) {
 /* 15. createPosts */
 
 async function createPosts(postsData) {
-    const fragment = document.createDocumentFragment();
+    if (!postsData) {
+        return undefined;
+    };
+    let fragment = document.createDocumentFragment();
 
     for (let post of postsData) {
         let article = document.createElement('article');
