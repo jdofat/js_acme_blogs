@@ -286,7 +286,7 @@ let displayPosts = async (postsData) => {
 
 /* 17. toggleComments */
 
-let toggleComments = async (clickEventListener, postId) => {
+async function toggleComments(clickEventListener, postId) {
     if (!clickEventListener instanceof Event) {
         return;
     }
