@@ -275,11 +275,10 @@ async function createPosts(postsData) {
 
 /* 16. displayPosts */
 
-function toggleComments(event, postId) {
-    event.target.listener = true;
-    let section = toggleCommentSection(postId);
-    let button = toggleCommentButton(postId);
-    return [section, button];
+async function displayPosts (postsData) {
+    let mainElement = document.querySelector('main');
+    let element = (postsData) ?createPosts(postsData) : mainElement.firstChild;
+    mainElement.appendChild(element);
 };
 
 /* 17. toggleComments */
