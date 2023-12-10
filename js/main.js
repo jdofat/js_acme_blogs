@@ -140,7 +140,7 @@ function populateSelectMenu(usersData) {
     let selectMenu = document.getElementById('selectMenu');
     let optionElements = createSelectOptions(usersData);
 
-     for (const option of optionElements) {
+     for (let option of optionElements) {
         selectMenu.appendChild(option);
     }
 
@@ -151,12 +151,12 @@ function populateSelectMenu(usersData) {
 
 async function getUsers() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        let response = await fetch('https://jsonplaceholder.typicode.com/users');
         if (!response.ok) {
             throw new Error('Unable to fetch data');
         }
 
-        const userData = await response.json();
+        let userData = await response.json();
         return userData;
     } catch (error) {
         console.error('Error fetching users data:', error);
@@ -306,10 +306,10 @@ return myArray;
 /* 18. refreshPosts */
 
 async function refreshPosts(postsData) {
-    const removeButtons = removeButtonListeners();
-    const mainElement = document.querySelector('main');
-    const main = deleteChildElements(mainElement);
-    const fragment = await displayPosts(postsData);
+    let removeButtons = removeButtonListeners();
+    let mainElement = document.querySelector('main');
+    let main = deleteChildElements(mainElement);
+    let fragment = await displayPosts(postsData);
     let addButtons = addButtonListeners();
 
     return [removeButtons, main, fragment, addButtons];
@@ -321,10 +321,10 @@ async function selectMenuChangeEventHandler(event) {
     let selectMenu = event.target;
     selectMenu.disabled = true;
 
-    const userId = event.target.value || 1;
+    let userId = event.target.value || 1;
 
-    const posts = await getUserPosts(userId);
-    const refreshPostsArray = await refreshPosts(posts);
+    let posts = await getUserPosts(userId);
+    let refreshPostsArray = await refreshPosts(posts);
 
     selectMenu.disabled = false;
 
@@ -334,8 +334,8 @@ async function selectMenuChangeEventHandler(event) {
 /* 20. initPage */
 
 async function initPage() {
-    const users = await getUsers();
-    const select = populateSelectMenu(users);
+    let users = await getUsers();
+    let select = populateSelectMenu(users);
 
     return [users, select];
 };
@@ -343,8 +343,8 @@ async function initPage() {
 /* 21. initApp */
 
 function initApp() {
-    const [users, select] = initPage();
-    const selectMenu = document.getElementById('selectMenu');
+    let [users, select] = initPage();
+    let selectMenu = document.getElementById('selectMenu');
 
     selectMenu.addEventListener('change', selectMenuChangeEventHandler);
 };
