@@ -302,19 +302,30 @@ return [mysection, mybutton];
 /* 18. refreshPosts */
 
 async function refreshPosts(postsData) {
-    let removeButtons = removeButtonListeners();
+    if (!postsData) {
+        return undefined;
+    }
+
+    let buttons = removeButtonListeners();
     let mainElement = document.querySelector('main');
     let main = deleteChildElements(mainElement);
     let fragment = await displayPosts(postsData);
     let addButtons = addButtonListeners();
 
-    return [removeButtons, main, fragment, addButtons];
+    return [buttons, main, fragment, addButtons];
 };
 
 /* 19. selectMenuChangeEventHandler */
 
 async function selectMenuChangeEventHandler(event) {
+    document.getElementById("selectMenu").disabled = true;
+    let userId = event.target.value || 1;
+    let posts= await getUserPosts(userId);
+    let refreshPostsArray = await refreshPosts(posts);
 
+    document.getElementById("selectMenu").disabled = false;
+
+    return [userId, posts, refreshPostsArray];
 };
 
 /* 20. initPage */
@@ -334,3 +345,5 @@ function initApp() {
 
     selectMenu.addEventListener('change', selectMenuChangeEventHandler(e));
 };
+
+document.addEventListener('DOMContentLoaded', initApp());
